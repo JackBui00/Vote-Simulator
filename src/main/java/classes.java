@@ -1,9 +1,9 @@
 
 package main.java; 
-import java.util.Random;
+import java.util.*;  
 
 class Student{
-
+    
     Random random = new Random(); 
     private String id = Integer.toString(random.nextInt(76437));
     private String answer; 
@@ -47,8 +47,25 @@ class Question{
 
 class multipleChoiceQuestion extends Question{
     String[] answers = new String[0];
+    List<String> tempchoices = Arrays.asList("a","b","c","d","e");
+    
 
-
+    private String[] shuffle(){
+        Collections.shuffle(tempchoices);
+        String [] choices = new String[tempchoices.size()];
+        choices = tempchoices.toArray(choices); 
+        return choices;
+    }
+    
+    public void createQuestion(){
+        String[] choices = shuffle();
+        Random random = new Random();
+        int correctAnswer = (random.nextInt(4)+1);
+        for (int i = 0; i < correctAnswer; i++){
+            addAnswer(choices[i]);
+        }
+        
+    }
 
     public String[] getAnswers(){
         return this.answers;
@@ -63,6 +80,8 @@ class multipleChoiceQuestion extends Question{
         tempAnswers[size] = newAnswer;
         answers = tempAnswers; 
     }
+    
+    
 
 }
 
