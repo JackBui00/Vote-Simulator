@@ -1,33 +1,34 @@
 package main.java;
-import java.util.LinkedList;
-import java.util.Queue;
+
+import java.util.Random;
 
 
 class Main{
-    public static void main(String[] args) {
-        Queue<Object> queueClassroom = new LinkedList<>(); 
+    public static void main(String[] args) { 
+        Random rand = new Random(); 
+
+        System.out.println("testing");
+
+        int students = rand.nextInt(25) + 1; 
+
+        int questions = rand.nextInt(5) + 1;
+
+        int multiQuestions = rand.nextInt(5) + 1;
+
         
-
-
-        //System.out.println("Hello World");
-
-        multipleChoiceQuestion question = new multipleChoiceQuestion(); 
-
-        question.addAnswer("A");
-        String [] answers = question.getAnswers();
-        for(int i = 0; i < answers.length; i++){
-            System.out.println(answers[i]);
+        for (int i = 0; i < questions; i++){
+            SimulationDriver run = new SimulationDriver(students, questions,multiQuestions); 
+            int[] xsize = run.createAnswerQuestion(questions);
+            run.displayQuestionAnswer(xsize, students);
         }
-        //System.out.println(question.getAnswers());
+        for (int i = 0; i < multiQuestions; i++){
+            SimulationDriver run = new SimulationDriver(students, questions,multiQuestions); 
+            int[] xsize = run.createAnswerMultiQuestion(questions);
+            run.displayQuestionAnswer(xsize, students);
+        }
         
-        Student student = new Student();
-        System.out.println(student.getId());
-        queueClassroom.add(student);
-        //System.out.println(queueClassroom.peek());
-        //Object test = queueClassroom.peek(); 
-        
-        //System.out.print(test);
-        //System.out.println(queueClassroom.isEmpty());
-
     }
+
+
+
 }
