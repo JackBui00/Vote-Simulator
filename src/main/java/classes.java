@@ -171,7 +171,7 @@ class SimulationDriver{
     //display the statistics of the answers of students 
     public void displayQuestionAnswer(int [] array,int students){
         System.out.print("------------------------------------------------------\n\n");
-        System.out.print("Student Count:"+ students + "/n"); 
+        System.out.print("Student Count:"+ students + "\n"); 
         System.out.println("\nA:" + array[0]);
         System.out.println("B:" + array[1]);
         System.out.println("C:" + array[2]);
@@ -179,10 +179,6 @@ class SimulationDriver{
         System.out.println("E:" + array[4]);
         System.out.print("------------------------------------------------------\n\n");
     }
-
-    
-
-    
 
 
 }
